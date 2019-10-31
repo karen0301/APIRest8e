@@ -19,4 +19,4 @@ var conectionDB = mysql.createConnection({
 //7. Validate mysql connection
 
 //8. RUN server
-app.listen(3000);
+app.listen(3000,()=>console.log('Server is running at port 3000'));
