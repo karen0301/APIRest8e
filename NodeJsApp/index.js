@@ -60,3 +60,4 @@ app.delete('/list_users/:id',(req,res)=>{
         }
     });
 });
+//12.Guardar será un post
