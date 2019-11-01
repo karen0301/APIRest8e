@@ -17,6 +17,46 @@ var conectionDB = mysql.createConnection({
     database: 'market'
 });
 //7. Validate mysql connection
+//variable de coneccion a la db le digo .connect y que retorne un error
+conectionDB.connect((err)=>{
+    if (!err)
+        console.log('::: Succesfull connection to data Base :::');
+    else
+        console.log('DB connection failed \n Error: '+ JSON.stringify(err,undefined,2));
+});
 
 //8. RUN server
 app.listen(3000,()=>console.log('Server is running at port 3000'));
+//9.
+app.get('/list_users',(req,res)=>{
+    conectionDB.query('SELECT * FROM users',(err,rows,fields)=>{
+        if(!err){
+            console.log(rows);
+            res.send(rows);
+            }else{
+                console.log(err);
+            }
+    });
+});
+//10. Get an user/ obtener un usuario
+app.get('/list_users/:id',(req,res)=>{
+    conectionDB.query('SELECT * FROM users WHERE id = ?', [req.params.id],(err,rows,fields)=>{
+        if(!err){
+            console.log(rows);
+            res.send(rows);
+        }else{
+            console.log(err);
+        }
+    });
+});
+//11. Delete an user/ Borrar un usuario
+app.delete('/list_users/:id',(req,res)=>{
+    conectionDB.query('DELETE * FROM users WHERE id = ?', [req.params.id],(err,rows,fields)=>{
+        if(!err){
+            console.log(rows);
+            res.send(rows);
+        }else{
+            console.log(err);
+        }
+    });
+});
