@@ -35,7 +35,10 @@ public class MainActivity extends AppCompatActivity {
         btn_register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Register("172.21.2.16/APIRest8e/register_user.php");
+
+                //Register("172.21.2.16/APIRest8e/register_user.php");
+                Register("http://172.21.2.52/APIRest8e/register_user.php");
+
             }
         });
     }
